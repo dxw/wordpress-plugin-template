@@ -18,6 +18,7 @@
         "post-update-cmd": "vendor/bin/phar-install"
     },
     "require-dev": {
+        "dxw/phar-install": "^1.1"
     },
     "require": {
         "php": "^7.4"
