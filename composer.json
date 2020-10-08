@@ -24,6 +24,7 @@
         "vimeo/psalm": "^3.16"
     },
     "require": {
-        "php": "^7.4"
+        "php": "^7.4",
+        "dxw/iguana": "^1.1"
     }
 }
