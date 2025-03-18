@@ -4,9 +4,9 @@ on: push
 
 jobs:
   kahlan:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
-      matrix:
+      matrix
         php-versions: ['8.2']
     steps:
       - uses: actions/checkout@v2
@@ -18,7 +18,7 @@ jobs:
         id: composer-cache
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -28,7 +28,7 @@ jobs:
         run: composer install --no-interaction
       - run: vendor/bin/kahlan
   psalm:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         php-versions: ['8.2']
@@ -42,7 +42,7 @@ jobs:
         id: composer-cache
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -52,7 +52,7 @@ jobs:
         run: composer install --no-interaction
       - run: vendor/bin/psalm
   php-cs-fixer:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         php-versions: ['8.2']
@@ -66,7 +66,7 @@ jobs:
         id: composer-cache
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
