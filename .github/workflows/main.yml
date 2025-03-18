@@ -6,7 +6,7 @@ jobs:
   kahlan:
     runs-on: ubuntu-24.04
     strategy:
-      matrix
+      matrix:
         php-versions: ['8.2']
     steps:
       - uses: actions/checkout@v2
