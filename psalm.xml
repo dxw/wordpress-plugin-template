@@ -15,10 +15,6 @@
     </ignoreFiles>
   </projectFiles>
   <issueHandlers>
-    <!-- These three will be tripped constantly because WordPress -->
-    <UndefinedFunction errorLevel="suppress"/>
-    <UndefinedConstant errorLevel="suppress"/>
-    <UndefinedClass errorLevel="suppress"/>
     <!-- Suppress the complaint about $registrar just in this file -->
     <UndefinedGlobalVariable>
       <errorLevel type="suppress">
@@ -26,4 +22,7 @@
       </errorLevel>
     </UndefinedGlobalVariable>
   </issueHandlers>
+  <plugins>
+    <pluginClass class="PsalmWordPress\Plugin" />
+  </plugins>
 </psalm>
