@@ -60,8 +60,22 @@ Psalm was able to infer types for 97.7273% of the codebase
 
 To create a new plugin start by modify the following:
 
-* `index.php` - Metadata for the plugin (name, version, etc)
-* `composer.json` - Package Metadata and namespace (psr-4)
-* `load.php` - Define the namespace
+* `index.php` - Add Metadata values for the new plugin (name, version, etc).
+* `index.php` - Rename this file to the plugin name e.g. `my-new-plugin.php`.
+* `composer.json` - Package Metadata and namespace (psr-4).
+* `load.php` - Define the namespace.
+* `README` - Update to contain any specific instructions and information for the plugin.
 
-Note: As we're distributing the `vendor.phar` file it may be a good idea to add an [autoload-suffix](https://getcomposer.org/doc/06-config.md#autoloader-suffix)" to the `config` object in `composer.json` and then re-generate the lock file. This ensures that there are no other namespace clashes and a unique hash is generated from the composer.json. This is especially important if other plugins have been based off this template.
+### Note
+
+#### Namespace clashing
+As we're distributing the `vendor.phar` file it may be a good idea to add an [autoload-suffix](https://getcomposer.org/doc/06-config.md#autoloader-suffix)" to the `config` object in `composer.json` and then re-generate the lock file. This ensures that there are no other namespace clashes and a unique hash is generated in the `composer.lock` and `vendor.phar` file. This is especially important if other plugins have been based off this template.
+For example in composer.json:
+```json
+    "config": {
+      "autoloader-suffix": "MyNewPluginNameHere",
+      "platform": {
+        "php": "8.2"
+      }
+    },
+```
