@@ -55,3 +55,13 @@ Checks took 0.01 seconds and used 6.608MB of memory
 No files analyzed
 Psalm was able to infer types for 97.7273% of the codebase
 ```
+
+## Modifying the template for a new plugin
+
+To create a new plugin start by modify the following:
+
+* `index.php` - Metadata for the plugin (name, version, etc)
+* `composer.json` - Package Metadata and namespace (psr-4)
+* `load.php` - Define the namespace
+
+Note: As we're distributing the `vendor.phar` file it may be a good idea to add an [autoload-suffix](https://getcomposer.org/doc/06-config.md#autoloader-suffix)" to the `config` object in `composer.json` and then re-generate the lock file. This ensures that there are no other namespace clashes and a unique hash is generated from the composer.json. This is especially important if other plugins have been based off this template.
