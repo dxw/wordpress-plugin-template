@@ -4,6 +4,7 @@
     "type": "wordpress-plugin",
     "license": "MIT",
     "config": {
+      "autoloader-suffix": "MyClassName",
       "platform": {
         "php": "8.2"
       }

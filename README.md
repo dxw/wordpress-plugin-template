@@ -62,7 +62,7 @@ To create a new plugin start by modify the following:
 
 * `index.php` - Add Metadata values for the new plugin (name, version, etc).
 * `index.php` - Rename this file to the plugin name e.g. `my-new-plugin.php`.
-* `composer.json` - Package Metadata and namespace (psr-4).
+* `composer.json` - Package Metadata, autoloader suffix (required to avoid namespace clashes with other plugins) and namespace (psr-4).
 * `load.php` - Define the namespace.
 * `README` - Update to contain any specific instructions and information for the plugin.
 
